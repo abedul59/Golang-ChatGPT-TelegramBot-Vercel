@@ -24,7 +24,7 @@ func HandlerFunc(w http.ResponseWriter, r *http.Request) {
 	/////////////////
 
 	bot.HandleMessage("ping", func(m *tbot.Message) {
-			c.SendMessage(m.Chat.ID, "pong")
+			c1.SendMessage(m.Chat.ID, "pong")
 		})
 	log.Fatal(bot.Start())
 }
