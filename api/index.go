@@ -3,7 +3,7 @@ package handler
 import (
 	"log"
 	"os"
-	"net/htt
+	"net/http"
 
 	
 	"github.com/yanzay/tbot/v2"
