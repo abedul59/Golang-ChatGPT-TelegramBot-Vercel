@@ -3,7 +3,7 @@ package handler
 import (
 	"log"
 	"os"
-	"net/http"
+
 	
 	"github.com/yanzay/tbot/v2"
 )
@@ -19,8 +19,5 @@ bot := tbot.New(os.Getenv("TELEGRAM_BOT_TOKEN"),
 		log.Fatal(bot.Start())
 }
 
-func main() {
-http.HandleFunc("/", HandlerFunc)
-http.ListenAndServe(":8080", nil)
-}
+
 
