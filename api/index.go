@@ -18,7 +18,7 @@ func HandlerFunc(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 
 	bot := tbot.New(os.Getenv("TELEGRAM_BOT_TOKEN"),
-		tbot.WithWebhook("https://golang-chat-gpt-telegram-bot-vercel.vercel.app/", ":8080"))
+		tbot.WithWebhook("https://golang-chat-gpt-telegram-bot-vercel-ijyuqy3ek.vercel.app", ":8080"))
 	c1 := bot.Client() //Please add your Render URL between "". 請在引號中加入你的Render網址
 
 	/////////////////
@@ -39,4 +39,9 @@ func HandlerFunc(w http.ResponseWriter, r *http.Request) {
 		c1.SendMessage(m.Chat.ID, "AI:"+resp.Choices[0].Text) //m.Text represents the text you typed in 代表你打的文字
 	})
 	log.Fatal(bot.Start())
+}
+
+func main() {
+  http.HandleFunc("/", HandlerFunc)
+  http.ListenAndServe(":8080", nil)
 }
