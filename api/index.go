@@ -23,21 +23,9 @@ func HandlerFunc(w http.ResponseWriter, r *http.Request) {
 
 	/////////////////
 
-	bot.HandleMessage(".*human:*", func(m *tbot.Message) { //The AI must be triggered by the keyword "human:"
-
-		req := gogpt.CompletionRequest{
-			Model:     "text-davinci-003",
-			MaxTokens: 200,
-			Prompt:    m.Text, //the text you typed in
-		}
-		resp, err := c.CreateCompletion(ctx, req)
-		if err != nil {
-			return
-		}
-		fmt.Println(resp.Choices[0].Text) // the answer you got
-
-		c1.SendMessage(m.Chat.ID, "AI:"+resp.Choices[0].Text) //m.Text represents the text you typed in 代表你打的文字
-	})
+	bot.HandleMessage("ping", func(m *tbot.Message) {
+			c.SendMessage(m.Chat.ID, "pong")
+		})
 	log.Fatal(bot.Start())
 }
 
