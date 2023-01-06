@@ -41,7 +41,6 @@ func HandlerFunc(w http.ResponseWriter, r *http.Request) {
 	log.Fatal(bot.Start())
 }
 
-func main() {
-  http.HandleFunc("/", HandlerFunc)
-  http.ListenAndServe(":8080", nil)
-}
+http.HandleFunc("/", HandlerFunc)
+http.ListenAndServe(":8080", nil)
+
